@@ -8,28 +8,27 @@ from MulticastController import MulticastController
 log = core.getLogger()
 multicastController = MulticastController("0.0.0.0.0", "00:00:00:00:00:00:00:00", 80)
 
-def matchMulticastRequest ():
+def matchMulticastRequest (event):
     
     msg = of.ofp_flow_mod()
-    match = of.ofp_match(
+    if (of.ofp_match(
         nw_dst = IPAddr(multicastController.getServerIPAddress()),
         dl_dst = EthAddr(multicastController.getServerMAC()),
         in_port = multicastController.getServerPort()
-    )
+    )):
+        multicastController.addMember(event.parsed.next.srcip)
 
-
-
-def matchMulticastContent ():
+def matchMulticastContent (event):
     return None
 
-def _handle_ConnectionUp (event):
+def _handle_PacketIn (event):
 
-    matchMulticastRequest()
-    matchMulticastContent()
+    matchMulticastRequest(event)
+    matchMulticastContent(event)
 
 def launch ():
 
-    core.openflow.addListenerByName("ConnectionUp", _handle_ConnectionUp)
+    core.openflow.addListenerByName("PacketIn", _handle_PacketIn)
     log.info("Grupo multicast iniciado")
 
 
