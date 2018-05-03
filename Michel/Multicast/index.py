@@ -1,21 +1,31 @@
 #importacao de bibbliotcas
 from pox.core import core
-import pox.openflow.libopenflow_01 as of
 from pox.lib.util import dpidToStr
+import pox.openflow.libopenflow_01 as of
 from pox.lib.addresses import IPAddr, EthAddr
+from MulticastController import MulticastController
 
 log = core.getLogger()
-multicastController = MulticastGroupController()
+multicastController = MulticastController("0.0.0.0.0", "00:00:00:00:00:00:00:00", 80)
 
-def _handle_ConnectionUp (event):
- 
+def matchMulticastRequest ():
     
     msg = of.ofp_flow_mod()
-    msg.match.dl_src = EthAddr("00:00:00:00:00:01")    
-    msg.match.dl_type = 0x800
-    msg.match.nw_dst = IPAddr("10.0.0.3")     
-    event.connection.send(msg)
-    log.info("firewall reativo ativado no Switch: %s", dpidToStr(event.dpid))
+    match = of.ofp_match(
+        nw_dst = IPAddr(multicastController.getServerIPAddress()),
+        dl_dst = EthAddr(multicastController.getServerMAC()),
+        in_port = multicastController.getServerPort()
+    )
+
+
+
+def matchMulticastContent ():
+    return None
+
+def _handle_ConnectionUp (event):
+
+    matchMulticastRequest()
+    matchMulticastContent()
 
 def launch ():
 
