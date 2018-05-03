@@ -5,11 +5,11 @@ from pox.lib.util import dpidToStr
 from pox.lib.addresses import IPAddr, EthAddr
 
 log = core.getLogger()
-multicast = input('MulticastGroupController')
-multicastGroup = __import__(multicast)
+multicastController = MulticastGroupController()
 
 def _handle_ConnectionUp (event):
  
+    
     msg = of.ofp_flow_mod()
     msg.match.dl_src = EthAddr("00:00:00:00:00:01")    
     msg.match.dl_type = 0x800
