@@ -6,7 +6,7 @@ from pox.lib.addresses import IPAddr, EthAddr
 from MulticastController import MulticastController
 
 log = core.getLogger()
-multicastController = MulticastController("0.0.0.0.0", "00:00:00:00:00:00:00:00", 80)
+multicastController = MulticastController("0.0.0.0.0", "00:00:00:00:00:00", 80)
 
 def matchMulticastRequest (event):
     
