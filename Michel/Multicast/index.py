@@ -22,7 +22,9 @@ def matchMulticastRequest (event):
             dl_dst = EthAddr(multicastController.getServerMAC()),
             in_port = multicastController.getServerPort()
         )):
-            multicastController.addMember(event.parsed.next.srcip)
+            #multicastController.addMember(event.parsed.next.srcip)
+            host = Node(event.parsed.src, True)
+            multicastController.addMember(host)
 
 def matchMulticastContent (event):
     return None

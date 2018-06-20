@@ -7,7 +7,8 @@ class MulticastController:
         self.serverPort = serverPort
 
     def addMember(self,member):
-        self.members.append(member)
+        if (not self.hasMember(member)):
+            self.members.append(member)
 
     def removeMember(self,member):
         self.members.remove(member)
@@ -23,3 +24,9 @@ class MulticastController:
 
     def getServerPort(self):
         return self.serverPort
+
+    def hasMember(self, member):
+        for m in self.members:
+            if(m.id == member.id):
+                return True
+        return False
