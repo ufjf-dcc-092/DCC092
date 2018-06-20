@@ -28,15 +28,14 @@ def matchMulticastContent (event):
     return None
 
 def _handle_PacketIn (event):
-
     matchMulticastRequest(event)
     matchMulticastContent(event)
 
 def _handle_LinkEvent (event):
     l = event.link
     #criar nós do tipo isHost=false se eles não existem
-    link1 = Node(l.dpid1, false)
-    link2 = Node(l.dpid2, false)
+    link1 = Node(l.dpid1, False)
+    link2 = Node(l.dpid2, False)
 
     if( not link1 in networkTopology):
         networkTopology.add_node(link1)
@@ -48,9 +47,18 @@ def _handle_LinkEvent (event):
     edge = Edge(link1, link2, l.port1, l.port2, 1)
     if (not edge in networkTopology):
         networkTopology.add_edge(link1, link2, object = edge)
-        log.info("switch " + link1.id + " conectado ao switch " + link2.id + " nas portas " + link1.port + " e " + link2.port + " respectivamente")
+        log.info("switch " + link1.id + " conectado ao switch " + link2.id + " nas portas " + l.port + " e " + l.port + " respectivamente")
 
 def _handle_HostEvent (event):
+    #even.entry.macaddr,event.entry.dpid, event.entry.port
+    host = Node(str(event.entry.macaddr), True)
+    link = Node(event.entry.dpid, False)
+    edge = Edge(link, host, event.entry.port, None, 1)
+    if(not host in networkTopology and networkTopology.has_node(link)):
+        networkTopology.add_node(host)
+        log.info("host " + host.id + " adicionado ao grado de topologia")
+        networkTopology.add_edge(link, host, object = edge)
+        log.info("switch " + link.id + " conectado ao host " + host.id + " na porta " + edge.port1)
 
 def launch ():
     
