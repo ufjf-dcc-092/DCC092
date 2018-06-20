@@ -46,16 +46,16 @@ def _handle_LinkEvent (event):
         networkTopology.add_node(link2)
         log.info("switch " + link2.id + " adicionado ao grafo de topologia")
     #criar aresta com weight 1
-    edge = Edge(link1, link2, l.port1, l.port2, 1)
+    edge = Edge(link1, link2, str(l.port1), str(l.port2), 1)
     if (not edge in networkTopology):
         networkTopology.add_edge(link1, link2, object = edge)
-        log.info("switch " + link1.id + " conectado ao switch " + link2.id + " nas portas " + l.port + " e " + l.port + " respectivamente")
+        log.info("switch " + link1.id + " conectado ao switch " + link2.id + " nas portas " + edge.port1 + " e " + edge.port2 + " respectivamente")
 
 def _handle_HostEvent (event):
     #even.entry.macaddr,event.entry.dpid, event.entry.port
     host = Node(str(event.entry.macaddr), True)
     link = Node(str(event.entry.dpid), False)
-    edge = Edge(link, host, event.entry.port, None, 1)
+    edge = Edge(link, host, str(event.entry.port), None, 1)
     if(not host in networkTopology and networkTopology.has_node(link)):
         networkTopology.add_node(host)
         log.info("host " + host.id + " adicionado ao grado de topologia")
