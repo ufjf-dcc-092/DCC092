@@ -26,7 +26,7 @@ class MulticastController:
         return self.serverPort
 
     def hasMember(self, member):
-        for m in self.members:
-            if(m.id == member.id):
-                return True
-        return False
+        if (member in self.members):
+            return True
+        else:
+            return False
