@@ -23,7 +23,7 @@ def matchMulticastRequest (event):
             in_port = multicastController.getServerPort()
         )):
             #multicastController.addMember(event.parsed.next.srcip)
-            host = Node(event.parsed.src, True)
+            host = Node(str(event.parsed.src), True)
             multicastController.addMember(host)
 
 def matchMulticastContent (event):
@@ -36,8 +36,8 @@ def _handle_PacketIn (event):
 def _handle_LinkEvent (event):
     l = event.link
     #criar nós do tipo isHost=false se eles não existem
-    link1 = Node(l.dpid1, False)
-    link2 = Node(l.dpid2, False)
+    link1 = Node(str(l.dpid1), False)
+    link2 = Node(str(l.dpid2), False)
 
     if( not link1 in networkTopology):
         networkTopology.add_node(link1)
@@ -54,7 +54,7 @@ def _handle_LinkEvent (event):
 def _handle_HostEvent (event):
     #even.entry.macaddr,event.entry.dpid, event.entry.port
     host = Node(str(event.entry.macaddr), True)
-    link = Node(event.entry.dpid, False)
+    link = Node(str(event.entry.dpid), False)
     edge = Edge(link, host, event.entry.port, None, 1)
     if(not host in networkTopology and networkTopology.has_node(link)):
         networkTopology.add_node(host)
