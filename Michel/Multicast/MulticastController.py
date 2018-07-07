@@ -1,32 +1,28 @@
 class MulticastController:
 
     def __init__(self, serverIPAddress, serverMAC, serverPort):
-        self.members = []
-        self.serverIPAddress = serverIPAddress
-        self.serverMAC = serverMAC
-        self.serverPort = serverPort
+        self.channelsIPs = ["1.1.1.1","2.2.2.2","3.3.3.3"]        
+        self.members = [[] for x in range(3)]
 
-    def addMember(self,member):
-        if (not self.hasMember(member)):
-            self.members.append(member)
+    def addMember(self,member, channelIP):
+        if (not self.hasMember(member, channelIP)):
+            self.members[self.channelsIPs.index(channelIP)].append(member)
 
-    def removeMember(self,member):
-        self.members.remove(member)
+    def removeMember(self,member, channelIP):
+        if(self.hasMember(member, channelIP)):
+            self.members[self.channelsIPs.index(channelIP)].remove(member)
 
-    def getMembers(self):
-        return self.members
+    def getMembers(self, channelIP):
+        return self.members[self.channelsIPS.index(channelIP)]
 
-    def getServerIPAddress(self):
-        return self.serverIPAddress
+    def hasMember(self, member, channelIP):
+        if (member in self.members[self.channelsIPs.index(channelIP)]):
+            return True
+        else:
+            return False
     
-    def getServerMAC(self):
-        return self.serverMAC
-
-    def getServerPort(self):
-        return self.serverPort
-
-    def hasMember(self, member):
-        if (member in self.members):
+    def hasChannel(self, channelIP):
+        if (channelIP in self.channelsIPs):
             return True
         else:
             return False

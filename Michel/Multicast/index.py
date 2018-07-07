@@ -12,26 +12,18 @@ from MulticastController import MulticastController
 
 log = core.getLogger()
 networkTopology = nx.Graph()
-multicastController = MulticastController("0.0.0.0.0", "00:00:00:00:00:00", 80)
+multicastController = MulticastController()
 
 def matchMulticastRequest (event):
     
     msg = of.ofp_flow_mod()
-    if (of.ofp_match(
-            nw_dst = IPAddr(multicastController.getServerIPAddress()),
-            dl_dst = EthAddr(multicastController.getServerMAC()),
-            in_port = multicastController.getServerPort()
-        )):
-            #multicastController.addMember(event.parsed.next.srcip)
-            host = Node(str(event.parsed.src), True)
-            multicastController.addMember(host)
-
-def matchMulticastContent (event):
-    return None
+    channelIP = str(msg.match.nw_dst)
+    requester = str(msg.match.dl_src)
+    
+    if multicastController.hasChannel(channelIP):
 
 def _handle_PacketIn (event):
     matchMulticastRequest(event)
-    matchMulticastContent(event)
 
 def _handle_LinkEvent (event):
     l = event.link
