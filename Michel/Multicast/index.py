@@ -25,7 +25,11 @@ def matchMulticastRequest (event):
         for member in multicastController.getMembers(channelIP):
             path = nx.dijkstra_path(networkTopology, requester, member, "weight")
             
-        
+            for x in range(len(path) - 1):
+                msg.actions.append(networkTopology[ path[x].id ][ path[x + 1].id ]["object"].port1)
+                connection = core.openflow.getConnection( path[ x ].id )
+                connection.send(msg)
+                networkTopology[ path[x] ][ path[x + 1] ]["weight"] = 0
 
 def _handle_PacketIn (event):
     matchMulticastRequest(event)

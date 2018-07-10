@@ -1,6 +1,6 @@
 class MulticastController:
 
-    def __init__(self, serverIPAddress, serverMAC, serverPort):
+    def __init__(self):
         self.channelsIPs = ["1.1.1.1","2.2.2.2","3.3.3.3"]        
         self.members = [[] for x in range(3)]
 
