@@ -13,7 +13,7 @@ class MulticastController:
             self.members[self.channelsIPs.index(channelIP)].remove(member)
 
     def getMembers(self, channelIP):
-        return self.members[self.channelsIPS.index(channelIP)]
+        return self.members[self.channelsIPs.index(channelIP)]
 
     def hasMember(self, member, channelIP):
         if (member in self.members[self.channelsIPs.index(channelIP)]):
