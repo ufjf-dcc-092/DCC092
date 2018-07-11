@@ -36,7 +36,7 @@ def _handle_PacketIn (event):
 
 def _handle_LinkEvent (event):
     l = event.link
-    #criar nos do tipo isHost=false se eles não existem
+    #criar nos do tipo isHost=false se eles nao existem
     link1 = Node(str(l.dpid1), False)
     link2 = Node(str(l.dpid2), False)
 
