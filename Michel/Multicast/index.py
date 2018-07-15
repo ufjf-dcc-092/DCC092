@@ -68,6 +68,8 @@ def launch ():
     multicastController.addMember("10.0.0.2", "1.1.1.1")
     multicastController.addMember("10.0.0.3", "1.1.1.1")
     
+    core.registerNew(Discovery)
+    core.registerNew(host_tracker)
     core.openflow.addListenerByName("PacketIn", _handle_PacketIn)
     core.openflow_discovery.addListenerByName("LinkEvent", _handle_LinkEvent)
     core.host_tracker.addListenerByName("HostEvent", _handle_HostEvent)
