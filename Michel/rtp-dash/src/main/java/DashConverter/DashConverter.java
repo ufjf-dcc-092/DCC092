@@ -3,16 +3,18 @@ package DashConverter;
 import com.xuggle.mediatool.IMediaReader;
 import com.xuggle.mediatool.IMediaWriter;
 import com.xuggle.mediatool.ToolFactory;
-import com.xuggle.xuggler.IContainer;
 import com.xuggle.xuggler.IContainerFormat;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
-import javax.xml.parsers.*;
-import javax.xml.transform.*;
-import javax.xml.transform.dom.*;
-import javax.xml.transform.stream.*;
-import org.xml.sax.*;
-import org.w3c.dom.*;
-
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -20,7 +22,6 @@ import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 import static com.xuggle.xuggler.ICodec.ID.CODEC_ID_H264;
-import static com.xuggle.xuggler.ICodec.ID.CODEC_ID_MP3;
 
 class Representation {
 
