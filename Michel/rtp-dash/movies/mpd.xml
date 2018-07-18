@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<MPD>
+<Period>
+<BaseURL>tame_impala/</BaseURL>
+<AdaptationSet mimeType="video/mp4">
+<BaseURL>video/</BaseURL>
+<Representation id="720p">
+<BaseURL>720p/</BaseURL>
+<SegmentList>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+<SegmentURL media="tame_impala720p.mp4"/>
+</SegmentList>
+</Representation>
+</AdaptationSet>
+<AdaptationSet mimeType="video/mp4">
+<BaseURL>video/</BaseURL>
+<Representation id="480p">
+<BaseURL>480p/</BaseURL>
+<SegmentList>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+<SegmentURL media="tame_impala480p.mp4"/>
+</SegmentList>
+</Representation>
+</AdaptationSet>
+<AdaptationSet mimeType="video/mp4">
+<BaseURL>video/</BaseURL>
+<Representation id="200p">
+<BaseURL>200p/</BaseURL>
+<SegmentList>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+<SegmentURL media="tame_impala200p.mp4"/>
+</SegmentList>
+</Representation>
+</AdaptationSet>
+</Period>
+</MPD>
